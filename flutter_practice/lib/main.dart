@@ -4,24 +4,45 @@ void main() {
   runApp(const MyApp());
 }
 
+class ChatItem {
+  final String name;
+  final String lastMessage;
+  final String avatarUrl;
+  bool isRead;
+  final DateTime time;
+
+  // Constructor with named parameters
+  ChatItem({
+    required this.name,
+    required this.lastMessage,
+    required this.avatarUrl,
+    required this.isRead,
+    required this.time,
+  });
+}
+
+class Profile {
+  final String username;
+  final String gender;
+  final int age;
+  final String email;
+  final DateTime birthday;
+  final String profilePic;
+  final String userID;
+
+  Profile({
+    required this.username,
+    required this.age,
+    required this.gender,
+    required this.userID,
+    required this.birthday,
+    required this.profilePic,
+    required this.email,
+  });
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  Account() {
-    return;
-  }
-
-  Add_friend() {
-    return;
-  }
-
-  Logout() {
-    return;
-  }
-
-  Search() {
-    return;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,22 +50,62 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-            onPressed: Account,
-            icon: Icon(Icons.account_circle_rounded),
+          leadingWidth: 112,
+          leading: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              IconButton(
+                onPressed: listUnread(),
+                icon: Icon(Icons.account_circle_rounded),
+              ),
+              IconButton(
+                onPressed: account(),
+                icon: Icon(Icons.notifications_active),
+              ),
+            ],
           ),
+
           centerTitle: true,
-          title: Text("Startup"),
+          title: Text("Sweeper"),
           actions: [
             IconButton(
-              onPressed: Add_friend,
+              onPressed: addFriend(),
               icon: Icon(Icons.person_add_sharp),
             ),
-            IconButton(onPressed: Logout, icon: Icon(Icons.login_outlined)),
-            IconButton(onPressed: Search, icon: Icon(Icons.search)),
+            IconButton(onPressed: search(), icon: Icon(Icons.search)),
+            IconButton(
+              onPressed: logout(),
+              icon: Icon(Icons.add_circle_outline),
+            ),
           ],
+          backgroundColor: Colors.blue[100],
         ),
+        body: ListView(),
       ),
     );
   }
+}
+
+account() {
+  return;
+}
+
+addFriend() {
+  return;
+}
+
+logout() {
+  return;
+}
+
+search() {
+  return;
+}
+
+listUnread() {
+  return;
+}
+
+addChat() {
+  return;
 }
