@@ -81,6 +81,36 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.blue[100],
         ),
         body: ListView(),
+        bottomNavigationBar: Container(
+          height: 40 + MediaQuery.of(context).padding.bottom,
+          color: Colors.blue[100],
+          alignment: Alignment.center,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              IconButton(
+                onPressed: search(),
+                icon: Icon(Icons.home),
+                iconSize: 36,
+              ),
+              IconButton(
+                onPressed: search(),
+                icon: Icon(Icons.camera_alt_outlined),
+                iconSize: 36,
+              ),
+              IconButton(
+                onPressed: search(),
+                icon: Icon(Icons.calendar_month_rounded),
+                iconSize: 36,
+              ),
+              IconButton(
+                onPressed: search(),
+                icon: Icon(Icons.play_arrow),
+                iconSize: 36,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
