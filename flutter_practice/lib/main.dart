@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'custom_widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -41,6 +42,22 @@ class Profile {
   });
 }
 
+//these will be variables holding strings later that pull from data base
+List<String> messages = [
+  "Meow",
+  "Meow",
+  "Meow",
+  "Meow",
+  "Meow",
+  "Meow",
+  "Meow",
+  "Meow",
+  "Meow",
+  "Meow",
+  "Meow",
+  "Meow",
+];
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -80,9 +97,14 @@ class MyApp extends StatelessWidget {
           ],
           backgroundColor: Colors.blue[100],
         ),
-        body: ListView(),
+        body: ListView.builder(
+          itemCount: messages.length,
+          itemBuilder: (context, index) {
+            return MessageBox(text: messages[index]);
+          },
+        ),
         bottomNavigationBar: Container(
-          height: 40 + MediaQuery.of(context).padding.bottom,
+          height: 80,
           color: Colors.blue[100],
           alignment: Alignment.center,
           child: Row(
